@@ -1,28 +1,25 @@
 <mat-nav-list class="container">
+    <!-- LOGO -->
     <div class="logo">
         <mat-icon class="icon" svgIcon="logo_menu"></mat-icon>
     </div>
+
     <div>
-        <mat-list-item>
-            <a routerLink="clients">
+        <mat-list-item *ngFor="let item of menuItems">
+            <a [routerLink]="item.route">
                 <button mat-icon-button>
-                    <mat-icon svgIcon="client"></mat-icon>
-                    <span>Clientes</span>
-                </button>
-            </a>
-        </mat-list-item>
-        <mat-list-item>
-            <a routerLink="invoices">
-                <button mat-icon-button>
-                    <mat-icon svgIcon="invoice"></mat-icon>
-                    <span>Facturas</span>
+                    <mat-icon [svgIcon]="item.icon"></mat-icon>
+                    <span>{{ item.label }}</span>
                 </button>
             </a>
         </mat-list-item>
     </div>
+
     <div class="user">
         <mat-icon class="icon" svgIcon="user"></mat-icon>
         <p>ADMIN</p>
-        <button class="btn-close" matButton="filled">Cerrar Sesión</button>
+        <button class="btn-close" mat-flat-button color="warn">
+            Cerrar Sesión
+        </button>
     </div>
 </mat-nav-list>

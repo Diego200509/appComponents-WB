@@ -4,14 +4,20 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from "@angular/material/button";
+import { CommonModule } from '@angular/common'; 
 
 @Component({
   selector: 'app-menu',
-  imports: [MatListModule, MatIconModule, RouterModule, MatButtonModule],
+  standalone: true,
+  imports: [MatListModule, MatIconModule, RouterModule, MatButtonModule, CommonModule],
   templateUrl: './menu.html',
   styleUrl: './menu.css'
 })
 export class Menu {
+  menuItems = [
+    { icon: 'client', label: 'Clientes', route: 'clients' },
+    { icon: 'invoice', label: 'Facturas', route: 'invoices' },
+  ];
   constructor(
     private iconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
