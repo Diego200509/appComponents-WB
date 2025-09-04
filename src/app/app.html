@@ -1,7 +1,8 @@
-
-<h1>Welcome to Didi</h1>
-
-<app-header></app-header>
-<app-footer></app-footer>
-<app-login></app-login>
-<router-outlet />
+<mat-drawer-container class="drawer-container">
+    <mat-drawer mode="side" opened="true" class="drawer">
+        <app-menu></app-menu>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

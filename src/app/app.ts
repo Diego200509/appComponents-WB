@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 import { Login } from "./auth/components/login/login";
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { Menu } from "./components/menu/menu";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, Login],
+  imports: [RouterOutlet, MatSidenavModule, Menu],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

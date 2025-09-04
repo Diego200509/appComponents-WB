@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="login-container">
+  <!-- Icono SVG personalizado -->
+  <div class="logo">
+    <mat-icon svgIcon="logo" class="icon"></mat-icon>
+  </div>
+
+  <!-- Formulario de inicio de sesión -->
+  <form>
+    <!-- Cedula -->
+    <strong class="text">Número de Cedula</strong>
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput placeholder="Ingrese el número de cedula" required>
+    </mat-form-field>
+
+    <!-- Contraseña -->
+    <strong class="text">Contraseña</strong>
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput placeholder="Ingrese la contraseña" type="password" required>
+    </mat-form-field>
+
+    <!-- Olvidar contraseña -->
+    <div class="forgot-password">
+      <a>¿Olvidaste tu contraseña?</a>
+    </div>
+
+     <!--BOTON INICIAR SESION-->
+    <button mat-raised-button color="primary" class="btn-login">Iniciar Sesión</button>
+  </form>
+
+</div>

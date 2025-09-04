@@ -1,1 +1,28 @@
-<p>menu works!</p>
+<mat-nav-list class="container">
+    <div class="logo">
+        <mat-icon class="icon" svgIcon="logo_menu"></mat-icon>
+    </div>
+    <div>
+        <mat-list-item>
+            <a routerLink="clients">
+                <button mat-icon-button>
+                    <mat-icon svgIcon="client"></mat-icon>
+                    <span>Clientes</span>
+                </button>
+            </a>
+        </mat-list-item>
+        <mat-list-item>
+            <a routerLink="invoices">
+                <button mat-icon-button>
+                    <mat-icon svgIcon="invoice"></mat-icon>
+                    <span>Facturas</span>
+                </button>
+            </a>
+        </mat-list-item>
+    </div>
+    <div class="user">
+        <mat-icon class="icon" svgIcon="user"></mat-icon>
+        <p>ADMIN</p>
+        <button class="btn-close" matButton="filled">Cerrar Sesión</button>
+    </div>
+</mat-nav-list>
