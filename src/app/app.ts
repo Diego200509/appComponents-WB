@@ -5,6 +5,7 @@ import { Footer } from "./components/footer/footer";
 import { Login } from "./auth/components/login/login";
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { Menu } from "./components/menu/menu";
+import { IconService } from './services/icon-service';
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,5 @@ import { Menu } from "./components/menu/menu";
 })
 export class App {
   protected readonly title = signal('appComponents');
+  constructor(private iconRegistry: IconService) { }
 }
