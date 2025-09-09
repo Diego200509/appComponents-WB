@@ -1,0 +1,61 @@
+.fld {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.fld-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+.fld-input {
+    width: 100%;
+    padding: 20px 12px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+.fld-input::placeholder {
+    color: #6b7280;
+    font-weight: 400;
+}
+
+.fld-input:hover {
+    border-color: #cbd5e1;
+}
+
+.fld-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, .15);
+}
+
+.rounded .fld-input {
+    border-radius: 10px;
+}
+
+.sharp .fld-input {
+    border-radius: 2px;
+}
+
+.underline .fld-input {
+    border: none;
+    border-bottom: 2px solid #d1d5db;
+    border-radius: 0;
+    padding-left: 0;
+}
+
+.underline .fld-input:focus {
+    border-bottom-color: #3b82f6;
+    box-shadow: none;
+}

@@ -7,24 +7,17 @@
   <!-- Formulario de inicio de sesión -->
   <form>
     <!-- Cedula -->
-    <strong class="text">Número de Cedula</strong>
-    <mat-form-field appearance="outline" class="full-width">
-      <input matInput placeholder="Ingrese el número de cedula" required>
-    </mat-form-field>
+    <app-label label="Número de Cédula" type="text" placeholder="Ingrese el número de cedula" appearance="outline" [required]="true"></app-label><br>
 
     <!-- Contraseña -->
-    <strong class="text">Contraseña</strong>
-    <mat-form-field appearance="outline" class="full-width">
-      <input matInput placeholder="Ingrese la contraseña" type="password" required>
-    </mat-form-field>
+    <app-label label="Contraseña" type="password" placeholder="Ingrese la contraseña" [required]="true"></app-label>
 
     <!-- Olvidar contraseña -->
     <div class="forgot-password">
       <a>¿Olvidaste tu contraseña?</a>
     </div>
 
-     <!--BOTON INICIAR SESION-->
-    <button mat-raised-button color="primary" class="btn-login">Iniciar Sesión</button>
+    <app-button label="Iniciar Sesión" type="filled" color="primary"></app-button>
   </form>
 
 </div>
