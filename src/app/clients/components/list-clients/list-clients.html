@@ -1,3 +1,9 @@
-<app-container>
-    <app-table [data]="data" [metaDataColumns]="metaDataColumnsClient"></app-table>
+<app-container class="overlay-area">
+    <app-table [data]="records" [metaDataColumns]="metaDataColumnsClient"></app-table>
+
+    <app-paginator class="paginator" (onChangePage)="ChangePage($event)" [length]="totalRecords">
+        ></app-paginator>
+
+    <app-keypad-button [listButton]="keypadButtons" (onClick)="doAction($event)" class="position">
+    </app-keypad-button>
 </app-container>
