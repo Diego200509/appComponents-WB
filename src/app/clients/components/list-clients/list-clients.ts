@@ -7,10 +7,19 @@ import { Paginator } from '../../../components/paginator/paginator';
 import { environment } from '../../../../environments/environment.development';
 import { KeypadButton } from '../../../components/keypad-button/keypad-button';
 import { IKeyPadButton } from '../../../interfaces/ikey-pad-button';
+import { MatColumnDef, MatTableModule } from "@angular/material/table";
+import { MatButtonModule } from "@angular/material/button";
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-list-clients',
-  imports: [Container, Table, Paginator, KeypadButton],
+  imports: [Container,
+    Table, Paginator, KeypadButton,
+    MatColumnDef, MatTableModule, MatButtonModule,
+    MatTooltipModule,
+    MatIconModule],
   templateUrl: './list-clients.html',
   styleUrl: './list-clients.css'
 })
@@ -55,13 +64,13 @@ export class ListClients {
     { field: 'lastName', title: 'APELLIDO' },
     { field: 'email', title: 'CORREO ELECTRONICO' }
   ]
-  records:IClient[] = [];
-  totalRecords:number
-  keypadButtons:IKeyPadButton[] = [
-    {icon:'cloud_download', color:'accent', tooltip:'DESCARGAR', action:'DOWNLOAD'},
-    {icon:'add', color:'primary', tooltip:'AGREGAR', action:'NEW'},
-    {icon:'edit', color:'warn', tooltip:'EDITAR', action:'EDIT'},
-    {icon:'delete', color:'warn', tooltip:'ELIMINAR', action:'DELETE'}
+  records: IClient[] = [];
+  totalRecords: number
+  keypadButtons: IKeyPadButton[] = [
+    { icon: 'cloud_download', color: 'accent', tooltip: 'DESCARGAR', action: 'DOWNLOAD' },
+    { icon: 'add', color: 'primary', tooltip: 'AGREGAR', action: 'NEW' },
+    { icon: 'edit', color: 'warn', tooltip: 'EDITAR', action: 'EDIT' },
+    { icon: 'delete', color: 'warn', tooltip: 'ELIMINAR', action: 'DELETE' }
   ]
 
   constructor() {
@@ -77,5 +86,12 @@ export class ListClients {
 
   doAction(action: string) {
     console.log('Action:', action);
+  }
+
+  openForm() {
+  }
+
+  delete() {
+
   }
 }

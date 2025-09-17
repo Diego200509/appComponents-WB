@@ -1,6 +1,17 @@
 <app-container class="overlay-area">
-    <app-table [data]="records" [metaDataColumns]="metaDataColumnsClient"></app-table>
-
+    <app-table [data]="records" [metaDataColumns]="metaDataColumnsClient">
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row" class="alignBottom">
+                <button mat-icon-button color="primary" (click)="openForm()" matTooltip="EDITAR">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" (click)="delete()" matTooltip="ELIMINAR">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+    </app-table>
     <app-paginator class="paginator" (onChangePage)="ChangePage($event)" [length]="totalRecords">
         ></app-paginator>
 
