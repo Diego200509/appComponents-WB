@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Container } from '../../../components/container/container';
 import { Table } from '../../../components/table/table';
 import { IClient } from '../../../interfaces/iclient';
@@ -11,6 +11,8 @@ import { MatColumnDef, MatTableModule } from "@angular/material/table";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
+import { FormClient } from '../form-client/form-client';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -68,10 +70,9 @@ export class ListClients {
   totalRecords: number
   keypadButtons: IKeyPadButton[] = [
     { icon: 'cloud_download', color: 'accent', tooltip: 'DESCARGAR', action: 'DOWNLOAD' },
-    { icon: 'add', color: 'primary', tooltip: 'AGREGAR', action: 'NEW' },
-    { icon: 'edit', color: 'warn', tooltip: 'EDITAR', action: 'EDIT' },
-    { icon: 'delete', color: 'warn', tooltip: 'ELIMINAR', action: 'DELETE' }
+    { icon: 'add', color: 'primary', tooltip: 'AGREGAR', action: 'NEW' }
   ]
+  dialog = inject(MatDialog);
 
   constructor() {
     this.totalRecords = this.data.length;
@@ -84,14 +85,28 @@ export class ListClients {
     this.records = this.data.slice(skip, skip + pageSize);
   }
 
+  openForm(row: any | null = null) {
+    const options = {
+      panelClass: 'panel-container',
+      disableClose: true,
+      data: row
+    }
+    const reference: MatDialogRef<FormClient> = this.dialog.open(FormClient, options);
+  }
+
   doAction(action: string) {
-    console.log('Action:', action);
+    switch (action) {
+      case 'DOWNLOAD': {
+        break
+      }
+      case 'NEW': {
+        this.openForm()
+        break
+      }
+    }
   }
 
-  openForm() {
-  }
-
-  delete() {
+  delete(id: string) {
 
   }
 }
