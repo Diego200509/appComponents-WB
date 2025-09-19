@@ -7,7 +7,8 @@ import { MenuInterface } from '../interfaces/menu-interface';
 export class MenuService {
   private listMenu: MenuInterface[] = [
     { title: 'Clientes', url: '/clients', icon: 'client' },
-    { title: 'Facturas', url: '/invoices', icon: 'invoice' }
+    { title: 'Facturas', url: '/invoices', icon: 'invoice' },
+    { title: 'Post', url: '/listpost', icon: 'invoice'}
   ];
 
   getMenu() {
