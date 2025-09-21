@@ -1,0 +1,61 @@
+<app-container>
+    <h1>Memes (Imgflip API)</h1>
+
+    <mat-form-field appearance="outline" style="width:360px;max-width:100%;">
+        <mat-label>Buscar por nombre</mat-label>
+        <input matInput #q (keyup)="applyFilter(q.value)" placeholder="Ej: Drake, Doge..." />
+        @if (q.value) {
+        <button mat-icon-button matSuffix (click)="clear(q)" aria-label="Limpiar">
+            <mat-icon>close</mat-icon>
+        </button>
+        }
+    </mat-form-field>
+
+    @if (loading) {
+    <div class="center"><mat-spinner diameter="44"></mat-spinner></div>
+    }
+
+    @if (!loading) {
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+
+        <!-- Miniatura -->
+        <ng-container matColumnDef="thumb">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let m"><img [src]="m.url" alt="meme" class="thumb"></td>
+        </ng-container>
+
+        <!-- Nombre -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+            <td mat-cell *matCellDef="let m"><strong>{{ m.name }}</strong></td>
+        </ng-container>
+
+        <!-- Tamaño -->
+        <ng-container matColumnDef="size">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Tamaño</th>
+            <td mat-cell *matCellDef="let m">{{ m.width }} × {{ m.height }}</td>
+        </ng-container>
+
+        <!-- Boxes -->
+        <ng-container matColumnDef="boxes">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cuadros de texto</th>
+            <td mat-cell *matCellDef="let m">{{ m.box_count }}</td>
+        </ng-container>
+
+        <!-- Link -->
+        <ng-container matColumnDef="link">
+            <th mat-header-cell *matHeaderCellDef>Link</th>
+            <td mat-cell *matCellDef="let m">
+                <a mat-button color="primary" [href]="m.url" target="_blank" rel="noopener">
+                    <mat-icon>open_in_new</mat-icon>&nbsp;Abrir
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5,10,20,50]" showFirstLastButtons></mat-paginator>
+    }
+</app-container>
