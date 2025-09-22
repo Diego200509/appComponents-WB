@@ -11,7 +11,8 @@ export class IconService {
     { name: 'logo', path: '/assets/icons/logo.svg' },
     { name: 'client', path: '/assets/icons/client.svg' },
     { name: 'invoice', path: '/assets/icons/invoice.svg' },
-    { name: 'user', path: '/assets/icons/user.svg' }
+    { name: 'user', path: '/assets/icons/user.svg' },
+    { name: 'meme', path: '/assets/icons/meme.svg' }
   ];
 
   MatIconRegistry = inject(MatIconRegistry);
